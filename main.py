@@ -14,6 +14,7 @@ async def test():
 
 @app.route('/detect')
 async def detect_object():
+        api_key = ""
         #----------detection--------------#
         image = cv2.imread("../Film-Site/static/images/" + quart.request.args.get('image'))
         image = cv2.resize(image, (1024, 1024)) #openai api uses images size 1024 x 1024
@@ -72,7 +73,7 @@ async def detect_object():
         # ----------masking--------------#
         #-------------AI--------------#
         prompt = quart.request.args.get('prompt') # get the prompt from frontend url argument
-        response = openai.Image.create_edit(api_key="",
+        response = openai.Image.create_edit(api_key=api_key,
                                             n=1,
                                             image=open(
                                                 "../Film-Site/static/detected/orig_resized.png",
