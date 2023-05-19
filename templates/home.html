@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film</title>
+
+    <style>
+        * {
+            padding: 10px;
+            margin: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 20px;
+            row-gap: 10px;
+            background-color: rgb(255, 255, 255);
+            align-items: center; 
+            justify-items: center;
+        }
+
+        img {
+            height: auto;
+            width: 100%;
+            transition: width 0.5s;
+        }
+
+        /* if window gets too small, switch to single column */
+        @media screen and (max-width: 800px){
+            .container{
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                column-gap: 10px;
+                row-gap: 10px;
+                background-color: rgb(255, 255, 255);
+                align-items: center; 
+                justify-items: center;
+            }
+            img {
+                height: auto;
+                width: 75%;
+                transition: width 0.5s;
+        }
+    }
+
+        img:hover {
+            width: 105%;
+        }
+
+        ul {
+            background-color: rgb(102, 0, 255);
+            color: white;
+            align-self: center;
+        }
+
+        a {
+            font-size: x-large;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        .menu {
+            display: inline;
+            font-size: large;
+        }
+
+        [type=radio] { 
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* IMAGE STYLES */
+        [type=radio] + img {
+            cursor: pointer;
+        }
+
+        /* CHECKED STYLES */
+        [type=radio]:checked + img {
+            outline: 2px solid rgb(160, 79, 187);
+        }
+    </style>
+</head>
+<body>
+    <form action="/detect" method="get">
+    <header>
+        <ul>
+            <li class="menu">
+                <label for="prompt">Prompt:</label><br>
+                <input type="text" id="prompt" name="prompt" required><br>
+            </li>
+        </ul>
+    </header>
+    <div class="container" id = "1">
+        <!-- <label><input type="radio" name="image" value="family.jpeg" required><img src="../static/images/family.jpeg" alt="Option 2"></label>
+        <label> <input type="radio" name="image" value="family.jpeg" required> <img src="../static/images/firebubba Large.jpeg" alt="Option 2"> </label>
+        <label><input type="radio" name="image" value="family.jpeg" required><img src="../static/images/family.jpeg" alt="Option 2"></label>
+        <label> <input type="radio" name="image" value="family.jpeg" required> <img src="../static/images/firebubba Large.jpeg" alt="Option 2"> </label>
+        <label> <input type="radio" name="image" value="family.jpeg" required> <img src="../static/images/firebubba Large.jpeg" alt="Option 2"> </label> -->
+    </div>
+<!-- <script src="../static/read.js"></script> -->
+<script src="../static/read.js"></script>
+    </form>
+</body>
+</html>
