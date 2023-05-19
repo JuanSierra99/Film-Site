@@ -11,7 +11,7 @@ render every image in our static/images folder.
 Notes:
 read.js is already up to date with the images i have saved in static/images/ so it should run fine. If you add new images, you need to run the string_images.js with node js in order to update read.js, so that all the images show up.
 
-You need to have your own openai api key, insert it into "api_key" in main.py line 75
+You need to have your own openai api key, assign it to api_key in the first line of detect_object() function.
 
 To use the website, select an image, then enter a prompt, then click enter. a url will be displayed, open it to see your new image. If no object is detected, go back and try with another image.
 
